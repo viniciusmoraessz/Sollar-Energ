@@ -3,6 +3,7 @@ import { DM_Sans, Sora } from 'next/font/google';
 import './globals.css';
 import './gallery.css';
 import './contact.css';
+import './icons.css';
 
 const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap' });
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans', display: 'swap' });

@@ -1,0 +1,21 @@
+.icon-svg {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+
+.solution-icon {
+  color: #111;
+  font-size: initial;
+  font-weight: normal;
+}
+
+.faq-item button span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.simulation-success-mark .icon-svg {
+  display: block;
+}

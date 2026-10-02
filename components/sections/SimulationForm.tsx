@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { FormEvent, useEffect, useRef, useState } from 'react';
+import { Icon } from '@/components/Icon';
 
 const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '558781641809';
 
@@ -56,7 +57,7 @@ export function SimulationForm() {
 
   return <section className="simulation-card" aria-labelledby="simulation-card-title">
     {done ? <div className="simulation-success" role="status">
-      <span className="simulation-success-mark" aria-hidden="true">✓</span>
+      <span className="simulation-success-mark"><Icon name="check" size={23}/></span>
       <p className="simulation-kicker">SIMULAÇÃO PREPARADA</p>
       <h3 id="simulation-card-title">Pronto. Só falta enviar sua solicitação.</h3>
       <p>O WhatsApp vai abrir com seus dados organizados para a equipe Sollar.</p>
@@ -84,7 +85,7 @@ export function SimulationForm() {
             <span className="currency-input"><span aria-hidden="true">R$</span><input name="bill" inputMode="decimal" value={values.bill} onChange={(event) => update('bill', event.currentTarget.value)} placeholder="450" aria-invalid={Boolean(error && !isValidBill(values.bill))} aria-describedby={error ? 'simulation-error' : undefined}/></span>
           </label>
           <label className="consent"><input type="checkbox" name="consent" checked={values.consent} onChange={(event) => update('consent', event.currentTarget.checked)} aria-invalid={Boolean(error && !values.consent)} aria-describedby={error ? 'simulation-error' : undefined}/> <span>Autorizo o uso desses dados para preparar minha simulação. <a href="#privacidade">Privacidade</a>.</span></label>
-          <button className="button button-solar simulation-next" type="submit">Preparar simulação <span aria-hidden="true">→</span></button>
+          <button className="button button-solar simulation-next" type="submit">Preparar simulação <Icon name="arrow-right"/></button>
         </div>
         {error && <p id="simulation-error" ref={errorRef} className="form-status error" role="alert" tabIndex={-1}>{error}</p>}
       </form>
