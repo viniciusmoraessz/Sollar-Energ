@@ -84,7 +84,7 @@ export function SimulationForm() {
           <label>Valor médio mensal da conta
             <span className="currency-input"><span aria-hidden="true">R$</span><input name="bill" inputMode="decimal" value={values.bill} onChange={(event) => update('bill', event.currentTarget.value)} placeholder="450" aria-invalid={Boolean(error && !isValidBill(values.bill))} aria-describedby={error ? 'simulation-error' : undefined}/></span>
           </label>
-          <label className="consent"><input type="checkbox" name="consent" checked={values.consent} onChange={(event) => update('consent', event.currentTarget.checked)} aria-invalid={Boolean(error && !values.consent)} aria-describedby={error ? 'simulation-error' : undefined}/> <span>Autorizo o uso desses dados para preparar minha simulação. <a href="#privacidade">Privacidade</a>.</span></label>
+          <label className="consent"><input type="checkbox" name="consent" checked={values.consent} onChange={(event) => update('consent', event.currentTarget.checked)} aria-invalid={Boolean(error && !values.consent)} aria-describedby={error ? 'simulation-error' : undefined}/> <span>Autorizo o uso desses dados para preparar minha simulação.</span></label>
           <button className="button button-solar simulation-next" type="submit">Preparar simulação <Icon name="arrow-right"/></button>
         </div>
         {error && <p id="simulation-error" ref={errorRef} className="form-status error" role="alert" tabIndex={-1}>{error}</p>}
