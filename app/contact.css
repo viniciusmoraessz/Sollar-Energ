@@ -49,6 +49,26 @@
   line-height: 1.12;
 }
 
+.service-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 520px;
+  margin: -8px 0 24px;
+}
+
+.service-areas span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--solar);
+  background: #e8e6df;
+  color: #222;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .form-heading {
   margin-bottom: 22px;
   padding-bottom: 18px;

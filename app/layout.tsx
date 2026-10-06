@@ -12,18 +12,18 @@ const ogImage = siteUrl ? `${siteUrl}/obra-tupanatinga-familia.jpg` : undefined;
 
 export const metadata: Metadata = {
   title: 'Energia Solar em Arcoverde PE | Sollar Energ',
-  description: 'Energia solar em Arcoverde e região para residências, empresas e propriedades rurais. Projeto, instalação e homologação. Solicite sua simulação.',
+  description: 'Energia solar em Arcoverde e região, com atendimento em Tupanatinga e Ibimirim. Projeto, instalação e homologação. Solicite sua simulação.',
   ...(siteUrl ? { metadataBase: new URL(siteUrl), alternates: { canonical: '/' } } : {}),
   openGraph: {
     title: 'Energia Solar em Arcoverde PE | Sollar Energ',
-    description: 'Energia solar em Arcoverde e região para residências, empresas e propriedades rurais. Projeto, instalação e homologação.',
+    description: 'Energia solar em Arcoverde e região para residências, empresas e propriedades rurais, com atendimento em Tupanatinga e Ibimirim.',
     ...(siteUrl ? { url: siteUrl } : {}),
     ...(ogImage ? { images: [{ url: ogImage, alt: 'Sistema de energia solar instalado pela Sollar Energ em Tupanatinga PE' }] } : {}),
     type: 'website',
     locale: 'pt_BR',
     siteName: 'Sollar Energ'
   },
-  twitter: { card: 'summary_large_image', title: 'Energia Solar em Arcoverde PE | Sollar Energ', description: 'Projetos de energia solar em Arcoverde e região para casas, empresas e propriedades rurais.', ...(ogImage ? { images: [ogImage] } : {}) },
+  twitter: { card: 'summary_large_image', title: 'Energia Solar em Arcoverde PE | Sollar Energ', description: 'Projetos de energia solar em Arcoverde, Tupanatinga, Ibimirim e região para casas, empresas e propriedades rurais.', ...(ogImage ? { images: [ogImage] } : {}) },
   robots: { index: true, follow: true },
   icons: { icon: '/favicon.svg' }
 };
@@ -35,12 +35,16 @@ const localBusiness = {
       '@type': ['LocalBusiness', 'Organization'],
       '@id': siteUrl ? `${siteUrl}/#organization` : undefined,
       name: 'Sollar Energ',
-      description: 'Empresa de energia solar e energia fotovoltaica em Arcoverde, Pernambuco, com atendimento em Arcoverde e região.',
+      description: 'Empresa de energia solar e energia fotovoltaica em Arcoverde, Pernambuco, com atendimento em Arcoverde, Tupanatinga, Ibimirim e região.',
       ...(siteUrl ? { url: siteUrl } : {}),
       logo: siteUrl ? `${siteUrl}/brand-mark.svg` : '/brand-mark.svg',
       image: ogImage || '/obra-tupanatinga-familia.jpg',
       telephone: '+55 87 8164-1809',
-      areaServed: { '@type': 'City', name: 'Arcoverde', containedInPlace: { '@type': 'AdministrativeArea', name: 'Pernambuco' } },
+      areaServed: [
+        { '@type': 'City', name: 'Arcoverde', containedInPlace: { '@type': 'AdministrativeArea', name: 'Pernambuco' } },
+        { '@type': 'City', name: 'Tupanatinga', containedInPlace: { '@type': 'AdministrativeArea', name: 'Pernambuco' } },
+        { '@type': 'City', name: 'Ibimirim', containedInPlace: { '@type': 'AdministrativeArea', name: 'Pernambuco' } }
+      ],
       knowsAbout: ['Energia solar', 'Energia fotovoltaica', 'Instalação de painéis solares', 'Homologação de sistemas fotovoltaicos'],
       address: {
         '@type': 'PostalAddress',
