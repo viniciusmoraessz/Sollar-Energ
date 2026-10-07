@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { DM_Sans, Sora } from 'next/font/google';
 import './globals.css';
 import './gallery.css';
@@ -9,6 +10,7 @@ const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap'
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans', display: 'swap' });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '');
 const ogImage = siteUrl ? `${siteUrl}/obra-tupanatinga-familia.jpg` : undefined;
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   title: 'Energia Solar em Arcoverde PE | Sollar Energ',
@@ -67,5 +69,24 @@ const localBusiness = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="pt-BR" className={`${sora.variable} ${dmSans.variable}`}><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} /></body></html>;
+  return (
+    <html lang="pt-BR" className={`${sora.variable} ${dmSans.variable}`}>
+      <body>
+        {children}
+        {gaId ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');
+`}
+            </Script>
+          </>
+        ) : null}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }} />
+      </body>
+    </html>
+  );
 }

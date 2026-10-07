@@ -18,13 +18,17 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=558781641809
 # URL canônica, sitemap e Open Graph. Não deixe vazia em produção.
 NEXT_PUBLIC_SITE_URL=https://seu-dominio-oficial.com.br
 # Opcional: IDs reais, quando forem configurados nas ferramentas externas.
-NEXT_PUBLIC_GA_ID=
+NEXT_PUBLIC_GA_ID=G-BLN3BNT5N2
 NEXT_PUBLIC_META_PIXEL_ID=
 ```
 
 O formulário valida os campos e encaminha para o WhatsApp com a mensagem preenchida. O contato padrão da Sollar é 87 8164-1809. Antes da publicação, confirme o número, CNPJ, regiões e métricas.
 
 Sem `NEXT_PUBLIC_SITE_URL`, o site não publica canonical, sitemap ou referência de sitemap com domínio inventado. Defina essa variável assim que o domínio oficial ou endereço Vercel estiver confirmado.
+
+## Google Analytics 4
+
+O layout carrega o Google Analytics 4 de forma condicional usando `NEXT_PUBLIC_GA_ID`. No deploy da Vercel, cadastre essa variável de ambiente com o ID de medição da propriedade GA4 (ex.: `G-BLN3BNT5N2`) e faça um novo deploy.
 
 ## Deploy na Vercel
 
